@@ -1,10 +1,13 @@
 package com.hibernate.tutorial.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Event {
 	private String title;
 	@Column(name="EVENT_DATE")
 	private Date date;
+	
+	@OneToMany
+	private Set<Person> participator = new HashSet<Person>();
 	
 	public Event() {}
 
@@ -62,4 +68,17 @@ public class Event {
 		this.date = date;
 	}
 	
+	/**
+	 * @return the participator
+	 */
+	public Set<Person> getParticipator() {
+		return participator;
+	}
+
+	/**
+	 * @param participator the participator to set
+	 */
+	public void setParticipator(Set<Person> participator) {
+		this.participator = participator;
+	}
 }
