@@ -15,6 +15,8 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	
+	String type;
+	
 	@OneToMany
 	private Set<Event> events = new HashSet<Event>();
 	
